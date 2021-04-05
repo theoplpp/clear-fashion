@@ -9,6 +9,7 @@ let currentPagination = {};
 // inititiqte selectors
 const selectShow = document.querySelector('#show-select');
 const selectPage = document.querySelector('#page-select');
+
 const sectionProducts = document.querySelector('#products');
 
 const selectBrand = document.querySelector('#brand-select');
@@ -42,6 +43,7 @@ const setCurrentProducts = ({result, meta}) => {
  * @param  {Number}  [size=12] - size of the page
  * @return {Object}
  */
+
  //https://server.vercel.app
  //https://clear-fashion-api.vercel.app
 const fetchProducts = async (page = 1, size = 12,brand="All") => {
@@ -58,6 +60,7 @@ const fetchProducts = async (page = 1, size = 12,brand="All") => {
       }
 
       return body.data;
+
     }
     else{
       const response = await fetch(
@@ -112,6 +115,7 @@ const renderProducts = products => {
   sectionProducts.innerHTML = '<h2 align=CENTER>Products </h2>';
   sectionProducts.appendChild(fragment);
 };
+
 
 
 /**
@@ -180,10 +184,12 @@ const render = (products, pagination) => {
   products = filter_products(products)
   renderProducts(products);
   renderPagination(pagination);
+
   renderIndicators(pagination,products);
 
   /*const brands = getBrandsFromProducts(products);
   renderBrands(brands);*/
+
 
 };
 
@@ -270,10 +276,12 @@ selectShow.addEventListener('change', event => {
 });
 
 
+
 /**
  * Select the page to display
  * @type {[type]}
  */
+
 
 selectPage.addEventListener('change', event => {
   //console.log(parseInt(event.target.value));
@@ -283,11 +291,13 @@ selectPage.addEventListener('change', event => {
     //console.log(currentPagination);
 });
 
+
 document.addEventListener('DOMContentLoaded', () =>
   fetchProducts()
     .then(setCurrentProducts)
     .then(() => render(currentProducts, currentPagination))
 );
+
 
 selectReasonnable.addEventListener("change",event=> {  
   if(filter_reasonable == "on"){    
@@ -346,6 +356,7 @@ selectSort.addEventListener('change', event =>{
   if(event.target.value === 'date-asc'){
     currentProducts = [...currentProducts].sort((a, b) => SortByDate(a, b));
 
+
   }
   //Date descending
   if(event.target.value === 'date-desc'){
@@ -354,5 +365,7 @@ selectSort.addEventListener('change', event =>{
   }
   render(currentProducts, currentPagination);
 })
+
+
 
 
