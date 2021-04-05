@@ -8,11 +8,13 @@ let currentPagination = {};
 // inititiqte selectors
 const selectShow = document.querySelector('#show-select');
 const selectPage = document.querySelector('#page-select');
+
 const selectBrands = document.querySelector('#brand-select');
 const sectionProducts = document.querySelector('#products');
 const spanNbProducts = document.querySelector('#nbProducts');
 const selectSort = document.querySelector('#sort-select');
 const NbProducts = document.querySelector('#nbProducts');
+
 /**
  * Set global value
  * @param {Array} result - products to display
@@ -29,9 +31,11 @@ const setCurrentProducts = ({result, meta}) => {
  * @param  {Number}  [size=12] - size of the page
  * @return {Object}
  */
+
  const fetchProducts = async (page = 1, size = 12) => {
   try {
     const response = await fetch(`https://clear-fashion-server-five.vercel.app/products?page=${page}&size=${size}`);
+
     const body = await response.json();
 
     if (body.success !== true) {
@@ -71,6 +75,7 @@ const renderProducts = products => {
   sectionProducts.appendChild(fragment);
 };
 
+
 //Feature 2
 const renderBrands = currentProducts => {
   try {
@@ -104,6 +109,7 @@ function filterBrands(currentProducts, filterBrand){
   } 
 }
 
+
 /**
  * Render page selector
  * @param  {Object} pagination
@@ -133,7 +139,9 @@ const render = (products, pagination) => {
   renderProducts(products);
   renderPagination(pagination);
   renderIndicators(pagination);
+
   renderBrands(currentProducts);
+
 };
 
 /**
@@ -150,6 +158,7 @@ selectShow.addEventListener('change', event => {
     .then(() => render(currentProducts, currentPagination));
 });
 
+
 //Feature 1
 selectPage.addEventListener('change', event => {
   fetchProducts(parseInt(event.target.value), selectShow.value)
@@ -163,11 +172,13 @@ selectBrands.addEventListener('change', event => {
     (SortChoice(currentProducts, selectSort.value));
 });
 
+
 document.addEventListener('DOMContentLoaded', () =>
   fetchProducts()
     .then(setCurrentProducts)
     .then(() => render(currentProducts, currentPagination))
 );
+
 // Feature 
 // Feature 3,4,5 and 6
 
@@ -265,5 +276,6 @@ selectSort.addEventListener('change', event => {
 });
 
 //Feature 8
+
 
 
