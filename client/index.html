@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="monstyle.css">
   </head>
   <body>
-
     <section id="top">
       
       <div class="div-categoryContainer">
@@ -26,25 +25,34 @@
 
     
     <section class = "filtre" id="options">
-      <div id="show">
+      <div >
+       <label > |___ </label>
         <label for="show-select">Number of products to display :</label>
         <select name="show" id="show-select">
           <option value="12">12</option>
           <option value="24">24</option>
           <option value="48">48</option>
         </select>
-      </div>
-      <div id="page">
-
+        
+        <label > ___||___ </label>
+      
+      
         <label for="page-select">Go to page :</label>
         <select name="page" id="page-select"> </select>
-      </div>
-      <div id="filters">
-        <input id="reasonnable" type="checkbox">
+        
+        <label >___||___ </label>
+     
+        
         <span>By reasonable price </span>
-        <input id="displayFavorite" type="checkbox">
+        <input id="reasonnable" type="checkbox">
+        
+        <label > ___||___ </label>
+       
         <span>By favorites </span>
-        <div id="brand">
+         <input id="displayFavorite" type="checkbox">
+         
+         <label > ___||___ </label>
+        
           <label for="brand-select">By brands:</label>
           <select name="brand" id="brand-select"> 
             <option value="All">All </option>
@@ -53,9 +61,11 @@
             <option value="loom">Loom </option>
             <option value="dedicated">Dedicated</option>
           </select>
-        </div>
-      </div>
-      <div id="sort">
+          
+          <label > ___||___ </label>
+       
+      
+      
         <label for="sort-select">Sort by price </label>
         <select name="sort" id="sort-select">
           <option value="price-asc">Cheaper </option>
@@ -63,6 +73,7 @@
           <!--<option value="date-asc">Recently released</option>
           <option value="date-desc">Anciently released</option> -->
         </select>
+        <label > ___| </label>
       </div>
     </section>
     
@@ -101,7 +112,6 @@
     <script type="text/javascript" charset="UTF-8" src="data.js"></script>
     <script type="text/javascript" charset="UTF-8" src="index.js"></script>
     <script type="text/javascript" charset="UTF-8" src="portfolio.js"></script>  
-
 
   </body>
 </html>
